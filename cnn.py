@@ -8,8 +8,17 @@ from tensorflow.keras.callbacks import (ModelCheckpoint, EarlyStopping)
 
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import Sequential
+import tensorflow as tf
 from joblib import dump
 import matplotlib.pyplot as plt
+
+gpus = tf.config.experimental.list_physical_devices('GPU')
+if gpus:
+    try:
+        tf.config.experimental.set_virtual_device_configuration(
+            gpus[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=4096)])
+    except RuntimeError as e:
+        print(e)
 
 CSV_FILE_PATH = 'data/mel_spectrogram.csv'
 MODEL_FILE_PATH = 'model/Epoch-{epoch:03d}_Val-{val_loss:.3f}.hdf5'
@@ -24,7 +33,7 @@ def build_model(input_shape):
     # http://sejong.dcollection.net/public_resource/pdf/200000175071_20200923012042.pdf
     # Fast Convolutional Neural Network Structure Design for Face Recognition On Raspberry Pi (2. 2019, Beak)
     layers = Sequential()
-    layers.add(InputLayer(input_shape=input_shape, name='mel_spectrogram_input'))
+    layers.add(InputLayer(input_shape=input_shape, dtype='float32', name='mel_spectrogram_input'))
 
     layers.add(Conv2D(filters=64, kernel_size=3, strides=2))
     layers.add(Activation(activation='relu'))
@@ -66,7 +75,7 @@ y_origin = csv_read.values[:, -1].astype('int32')
 X_origin, y_origin \
     = RandomOverSampler(random_state=777).fit_sample(X_origin, y_origin)
 
-y_origin = np.eye(np.unique(y_origin, axis=0).shape[0])[y_origin]
+y_origin = np.eye(np.unique(y_origin, axis=0).shape[0])[y_origin].astype('float32')
 
 scaler = StandardScaler()
 X_origin = scaler.fit_transform(X_origin).reshape(-1, 99, 90)
