@@ -5,7 +5,6 @@ import numpy as np
 from mel_spectrogram import mel_spectrogram
 from grad_cam import GradCam
 from six.moves import queue
-import matplotlib.pyplot as plt
 import pyaudio
 
 
@@ -100,7 +99,7 @@ if __name__ == '__main__':
     model = load_model(MODEL_FILE_PATH)
     cam_generator = GradCam(model, WATCH_CONV_ACT_LAYER_NAME, WATCH_CLASSIFIER_LAYER_NAMES)
 
-    with MicStream(MICS_SAM_RATE, MICS_SAM_RATE//2) as stream:
+    with MicStream(MICS_SAM_RATE, MICS_SAM_RATE//2, MICS_DEVICE_ID, MICS_CHANNELS) as stream:
         audio_generator = stream.generator(out_size=MICS_SAM_RATE)
 
         for data in audio_generator:

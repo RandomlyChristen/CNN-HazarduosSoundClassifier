@@ -2,9 +2,8 @@ import pandas as pd
 import numpy as np
 from imblearn.over_sampling import RandomOverSampler
 from sklearn.preprocessing import StandardScaler
-from sklearn.utils.class_weight import compute_class_weight
-from tensorflow.keras.layers import (InputLayer, Conv2D, BatchNormalization,
-                                     Activation, Dropout, Dense, GlobalAveragePooling2D)
+from tensorflow.keras.layers import (InputLayer, Conv2D, Activation,
+                                     Dropout, Dense, GlobalAveragePooling2D)
 from tensorflow.keras.callbacks import (ModelCheckpoint, EarlyStopping)
 
 from tensorflow.keras.optimizers import Adam
@@ -61,8 +60,8 @@ def build_model(input_shape):
 
 
 csv_read = pd.read_csv(CSV_FILE_PATH, header=None)
-X_origin = csv_read.values[:, :-1]
-y_origin = csv_read.values[:, -1].astype('int64')
+X_origin = csv_read.values[:, :-1].astype('float32')
+y_origin = csv_read.values[:, -1].astype('int32')
 
 X_origin, y_origin \
     = RandomOverSampler(random_state=777).fit_sample(X_origin, y_origin)
