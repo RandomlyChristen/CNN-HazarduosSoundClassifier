@@ -3,7 +3,7 @@ from tensorflow.keras.models import load_model
 from joblib import load
 import numpy as np
 from mel_spectrogram import mel_spectrogram
-from grad_cam import GradCam
+from cam import Cam
 from six.moves import queue
 import pyaudio
 
@@ -11,11 +11,8 @@ import pyaudio
 SCALER_FILE_PATH = 'model/scaler.joblib'
 MODEL_FILE_PATH = 'model/Epoch-477_Val-0.000.hdf5'
 
-WATCH_CONV_ACT_LAYER_NAME = 'activation_6'
-WATCH_CLASSIFIER_LAYER_NAMES = [
-    'global_average_pooling2d',
-    'dense'
-]
+WATCH_CONV_ACT_LAYER = -3
+WATCH_CLASSIFIER_LAYER = -1
 
 DANGER_THRESHOLD = 0.6
 MICS_SAM_RATE = 44100
@@ -97,7 +94,7 @@ def vote_from_cam(data_0, data_1, _cam):
 if __name__ == '__main__':
     scaler: StandardScaler = load(SCALER_FILE_PATH)
     model = load_model(MODEL_FILE_PATH)
-    cam_generator = GradCam(model, WATCH_CONV_ACT_LAYER_NAME, WATCH_CLASSIFIER_LAYER_NAMES)
+    cam_generator = Cam(model, WATCH_CONV_ACT_LAYER, WATCH_CLASSIFIER_LAYER)
 
     with MicStream(MICS_SAM_RATE, MICS_SAM_RATE//2, MICS_DEVICE_ID, MICS_CHANNELS) as stream:
         audio_generator = stream.generator(out_size=MICS_SAM_RATE)
@@ -113,10 +110,10 @@ if __name__ == '__main__':
 
             pred = model.predict(X)
 
-            if pred[0][0] > DANGER_THRESHOLD:
-                cam = cam_generator.get_gradcam(X)
+            if pred[0][1] > DANGER_THRESHOLD:
+                cam = cam_generator.get_cam(X)[0]
 
-                vote_result = vote_from_cam(left_mel, right_mel, cam)
+                vote_result = vote_from_cam(left_mel, right_mel, np.array(cam))
                 if vote_result == 0:
                     print('LEFT DANGER')
                 else:
