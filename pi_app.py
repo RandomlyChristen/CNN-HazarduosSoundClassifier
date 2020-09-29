@@ -9,7 +9,7 @@ import pyaudio
 
 
 SCALER_FILE_PATH = 'model/scaler.joblib'
-MODEL_FILE_PATH = 'model/Epoch-055_Val-0.000.hdf5'
+MODEL_FILE_PATH = 'model/Epoch-100_Val-0.000.hdf5'
 
 WATCH_CONV_ACT_LAYER = -3
 WATCH_CLASSIFIER_LAYER = -1
