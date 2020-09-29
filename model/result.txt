@@ -1,0 +1,498 @@
+C:\Users\USER\anaconda3\envs\cuda\python.exe E:/CNN-HazarduosSoundClassifier/cnn.py
+C:\Users\USER\anaconda3\envs\cuda\lib\site-packages\numpy\_distributor_init.py:32: UserWarning: loaded more than 1 DLL from .libs:
+C:\Users\USER\anaconda3\envs\cuda\lib\site-packages\numpy\.libs\libopenblas.NOIJJG62EMASZI6NYURL6JBKM4EVBGM7.gfortran-win_amd64.dll
+C:\Users\USER\anaconda3\envs\cuda\lib\site-packages\numpy\.libs\libopenblas.PYQHXLVVQ7VESDPUVUADXEVJOBGHJPAY.gfortran-win_amd64.dll
+  stacklevel=1)
+2020-09-29 15:40:10.804212: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-09-29 15:40:12.480015: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-09-29 15:40:12.510210: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:07:00.0 name: GeForce RTX 2070 SUPER computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 40 deviceMemorySize: 8.00GiB deviceMemoryBandwidth: 417.29GiB/s
+2020-09-29 15:40:12.510377: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-09-29 15:40:12.520408: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-09-29 15:40:12.523019: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-09-29 15:40:12.524133: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-09-29 15:40:12.527516: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-09-29 15:40:12.529950: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-09-29 15:40:12.537159: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-09-29 15:40:12.537359: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-09-29 15:40:18.295355: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-09-29 15:40:18.301877: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2041c06add0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-29 15:40:18.302050: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-29 15:40:18.302253: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:07:00.0 name: GeForce RTX 2070 SUPER computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 40 deviceMemorySize: 8.00GiB deviceMemoryBandwidth: 417.29GiB/s
+2020-09-29 15:40:18.302401: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-09-29 15:40:18.302485: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-09-29 15:40:18.302561: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-09-29 15:40:18.302635: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-09-29 15:40:18.302715: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-09-29 15:40:18.302796: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-09-29 15:40:18.302892: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-09-29 15:40:18.302985: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-09-29 15:40:18.801160: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-29 15:40:18.801252: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0
+2020-09-29 15:40:18.801301: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N
+2020-09-29 15:40:18.801465: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 2048 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2070 SUPER, pci bus id: 0000:07:00.0, compute capability: 7.5)
+2020-09-29 15:40:18.804023: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x20451516eb0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-29 15:40:18.804117: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 2070 SUPER, Compute Capability 7.5
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 49, 44, 64)        640
+_________________________________________________________________
+activation (Activation)      (None, 49, 44, 64)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 49, 44, 64)        0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 47, 42, 64)        36928
+_________________________________________________________________
+activation_1 (Activation)    (None, 47, 42, 64)        0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 47, 42, 64)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 23, 20, 128)       73856
+_________________________________________________________________
+activation_2 (Activation)    (None, 23, 20, 128)       0
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 23, 20, 128)       0
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 21, 18, 128)       147584
+_________________________________________________________________
+activation_3 (Activation)    (None, 21, 18, 128)       0
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 21, 18, 128)       0
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 19, 16, 256)       295168
+_________________________________________________________________
+activation_4 (Activation)    (None, 19, 16, 256)       0
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 19, 16, 256)       0
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 9, 7, 512)         1180160
+_________________________________________________________________
+activation_5 (Activation)    (None, 9, 7, 512)         0
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 9, 7, 512)         0
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 7, 5, 512)         2359808
+_________________________________________________________________
+activation_6 (Activation)    (None, 7, 5, 512)         0
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 512)               0
+_________________________________________________________________
+dense (Dense)                (None, 2)                 1026
+=================================================================
+Total params: 4,095,170
+Trainable params: 4,095,170
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/100
+2020-09-29 15:40:19.636829: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-09-29 15:40:19.879538: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-09-29 15:40:20.858867: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation.
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+25/25 [==============================] - ETA: 0s - loss: 0.4585 - acc: 0.7394
+Epoch 00001: val_loss improved from inf to 0.49138, saving model to model/Epoch-001_Val-0.491.hdf5
+25/25 [==============================] - 1s 52ms/step - loss: 0.4585 - acc: 0.7394 - val_loss: 0.4914 - val_acc: 0.8450
+Epoch 2/100
+25/25 [==============================] - ETA: 0s - loss: 0.1960 - acc: 0.9094
+Epoch 00002: val_loss improved from 0.49138 to 0.19459, saving model to model/Epoch-002_Val-0.195.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.1960 - acc: 0.9094 - val_loss: 0.1946 - val_acc: 0.8750
+Epoch 3/100
+25/25 [==============================] - ETA: 0s - loss: 0.1639 - acc: 0.9337
+Epoch 00003: val_loss improved from 0.19459 to 0.13719, saving model to model/Epoch-003_Val-0.137.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.1639 - acc: 0.9337 - val_loss: 0.1372 - val_acc: 0.9250
+Epoch 4/100
+25/25 [==============================] - ETA: 0s - loss: 0.1415 - acc: 0.9450
+Epoch 00004: val_loss improved from 0.13719 to 0.12272, saving model to model/Epoch-004_Val-0.123.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.1415 - acc: 0.9450 - val_loss: 0.1227 - val_acc: 0.9350
+Epoch 5/100
+25/25 [==============================] - ETA: 0s - loss: 0.1058 - acc: 0.9638
+Epoch 00005: val_loss improved from 0.12272 to 0.10578, saving model to model/Epoch-005_Val-0.106.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.1058 - acc: 0.9638 - val_loss: 0.1058 - val_acc: 0.9575
+Epoch 6/100
+25/25 [==============================] - ETA: 0s - loss: 0.0630 - acc: 0.9787
+Epoch 00006: val_loss improved from 0.10578 to 0.07053, saving model to model/Epoch-006_Val-0.071.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0630 - acc: 0.9787 - val_loss: 0.0705 - val_acc: 0.9625
+Epoch 7/100
+25/25 [==============================] - ETA: 0s - loss: 0.0326 - acc: 0.9900
+Epoch 00007: val_loss improved from 0.07053 to 0.05956, saving model to model/Epoch-007_Val-0.060.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0326 - acc: 0.9900 - val_loss: 0.0596 - val_acc: 0.9625
+Epoch 8/100
+25/25 [==============================] - ETA: 0s - loss: 0.0203 - acc: 0.9937
+Epoch 00008: val_loss did not improve from 0.05956
+25/25 [==============================] - 1s 36ms/step - loss: 0.0203 - acc: 0.9937 - val_loss: 0.0625 - val_acc: 0.9750
+Epoch 9/100
+25/25 [==============================] - ETA: 0s - loss: 0.0162 - acc: 0.9937
+Epoch 00009: val_loss improved from 0.05956 to 0.01424, saving model to model/Epoch-009_Val-0.014.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0162 - acc: 0.9937 - val_loss: 0.0142 - val_acc: 1.0000
+Epoch 10/100
+25/25 [==============================] - ETA: 0s - loss: 0.0094 - acc: 0.9975
+Epoch 00010: val_loss did not improve from 0.01424
+25/25 [==============================] - 1s 36ms/step - loss: 0.0094 - acc: 0.9975 - val_loss: 0.0214 - val_acc: 0.9950
+Epoch 11/100
+25/25 [==============================] - ETA: 0s - loss: 0.0103 - acc: 0.9956
+Epoch 00011: val_loss improved from 0.01424 to 0.01159, saving model to model/Epoch-011_Val-0.012.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0103 - acc: 0.9956 - val_loss: 0.0116 - val_acc: 1.0000
+Epoch 12/100
+25/25 [==============================] - ETA: 0s - loss: 0.0027 - acc: 0.9994
+Epoch 00012: val_loss improved from 0.01159 to 0.01082, saving model to model/Epoch-012_Val-0.011.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0027 - acc: 0.9994 - val_loss: 0.0108 - val_acc: 1.0000
+Epoch 13/100
+25/25 [==============================] - ETA: 0s - loss: 0.0016 - acc: 1.0000
+Epoch 00013: val_loss improved from 0.01082 to 0.00629, saving model to model/Epoch-013_Val-0.006.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0016 - acc: 1.0000 - val_loss: 0.0063 - val_acc: 1.0000
+Epoch 14/100
+25/25 [==============================] - ETA: 0s - loss: 9.6686e-04 - acc: 1.0000
+Epoch 00014: val_loss improved from 0.00629 to 0.00242, saving model to model/Epoch-014_Val-0.002.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 9.6686e-04 - acc: 1.0000 - val_loss: 0.0024 - val_acc: 1.0000
+Epoch 15/100
+25/25 [==============================] - ETA: 0s - loss: 6.7260e-04 - acc: 1.0000
+Epoch 00015: val_loss did not improve from 0.00242
+25/25 [==============================] - 1s 36ms/step - loss: 6.7260e-04 - acc: 1.0000 - val_loss: 0.0057 - val_acc: 1.0000
+Epoch 16/100
+25/25 [==============================] - ETA: 0s - loss: 5.2979e-04 - acc: 1.0000
+Epoch 00016: val_loss did not improve from 0.00242
+25/25 [==============================] - 1s 36ms/step - loss: 5.2979e-04 - acc: 1.0000 - val_loss: 0.0030 - val_acc: 1.0000
+Epoch 17/100
+25/25 [==============================] - ETA: 0s - loss: 5.5670e-04 - acc: 1.0000
+Epoch 00017: val_loss improved from 0.00242 to 0.00181, saving model to model/Epoch-017_Val-0.002.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 5.5670e-04 - acc: 1.0000 - val_loss: 0.0018 - val_acc: 1.0000
+Epoch 18/100
+25/25 [==============================] - ETA: 0s - loss: 0.0011 - acc: 1.0000
+Epoch 00018: val_loss improved from 0.00181 to 0.00170, saving model to model/Epoch-018_Val-0.002.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0011 - acc: 1.0000 - val_loss: 0.0017 - val_acc: 1.0000
+Epoch 19/100
+25/25 [==============================] - ETA: 0s - loss: 6.3879e-04 - acc: 1.0000
+Epoch 00019: val_loss improved from 0.00170 to 0.00159, saving model to model/Epoch-019_Val-0.002.hdf5
+25/25 [==============================] - 1s 41ms/step - loss: 6.3879e-04 - acc: 1.0000 - val_loss: 0.0016 - val_acc: 1.0000
+Epoch 20/100
+25/25 [==============================] - ETA: 0s - loss: 0.0011 - acc: 0.9994
+Epoch 00020: val_loss improved from 0.00159 to 0.00027, saving model to model/Epoch-020_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 0.0011 - acc: 0.9994 - val_loss: 2.6595e-04 - val_acc: 1.0000
+Epoch 21/100
+25/25 [==============================] - ETA: 0s - loss: 0.0152 - acc: 0.9937
+Epoch 00021: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 0.0152 - acc: 0.9937 - val_loss: 0.0244 - val_acc: 0.9850
+Epoch 22/100
+25/25 [==============================] - ETA: 0s - loss: 0.0023 - acc: 0.9994
+Epoch 00022: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 0.0023 - acc: 0.9994 - val_loss: 0.0054 - val_acc: 1.0000
+Epoch 23/100
+25/25 [==============================] - ETA: 0s - loss: 0.0020 - acc: 0.9994
+Epoch 00023: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 0.0020 - acc: 0.9994 - val_loss: 0.0046 - val_acc: 1.0000
+Epoch 24/100
+25/25 [==============================] - ETA: 0s - loss: 4.2605e-04 - acc: 1.0000
+Epoch 00024: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 4.2605e-04 - acc: 1.0000 - val_loss: 5.7684e-04 - val_acc: 1.0000
+Epoch 25/100
+25/25 [==============================] - ETA: 0s - loss: 1.8321e-04 - acc: 1.0000
+Epoch 00025: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 1.8321e-04 - acc: 1.0000 - val_loss: 6.9280e-04 - val_acc: 1.0000
+Epoch 26/100
+25/25 [==============================] - ETA: 0s - loss: 1.8204e-04 - acc: 1.0000
+Epoch 00026: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 1.8204e-04 - acc: 1.0000 - val_loss: 6.8728e-04 - val_acc: 1.0000
+Epoch 27/100
+25/25 [==============================] - ETA: 0s - loss: 1.7565e-04 - acc: 1.0000
+Epoch 00027: val_loss did not improve from 0.00027
+25/25 [==============================] - 1s 36ms/step - loss: 1.7565e-04 - acc: 1.0000 - val_loss: 4.5374e-04 - val_acc: 1.0000
+Epoch 28/100
+25/25 [==============================] - ETA: 0s - loss: 8.1250e-05 - acc: 1.0000
+Epoch 00028: val_loss improved from 0.00027 to 0.00023, saving model to model/Epoch-028_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 8.1250e-05 - acc: 1.0000 - val_loss: 2.3150e-04 - val_acc: 1.0000
+Epoch 29/100
+25/25 [==============================] - ETA: 0s - loss: 5.7736e-05 - acc: 1.0000
+Epoch 00029: val_loss improved from 0.00023 to 0.00020, saving model to model/Epoch-029_Val-0.000.hdf5
+25/25 [==============================] - 1s 41ms/step - loss: 5.7736e-05 - acc: 1.0000 - val_loss: 1.9679e-04 - val_acc: 1.0000
+Epoch 30/100
+25/25 [==============================] - ETA: 0s - loss: 4.2312e-05 - acc: 1.0000
+Epoch 00030: val_loss improved from 0.00020 to 0.00017, saving model to model/Epoch-030_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 4.2312e-05 - acc: 1.0000 - val_loss: 1.6547e-04 - val_acc: 1.0000
+Epoch 31/100
+25/25 [==============================] - ETA: 0s - loss: 5.0886e-05 - acc: 1.0000
+Epoch 00031: val_loss improved from 0.00017 to 0.00016, saving model to model/Epoch-031_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 5.0886e-05 - acc: 1.0000 - val_loss: 1.6331e-04 - val_acc: 1.0000
+Epoch 32/100
+25/25 [==============================] - ETA: 0s - loss: 6.6874e-05 - acc: 1.0000
+Epoch 00032: val_loss improved from 0.00016 to 0.00016, saving model to model/Epoch-032_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 6.6874e-05 - acc: 1.0000 - val_loss: 1.5982e-04 - val_acc: 1.0000
+Epoch 33/100
+25/25 [==============================] - ETA: 0s - loss: 5.3684e-05 - acc: 1.0000
+Epoch 00033: val_loss did not improve from 0.00016
+25/25 [==============================] - 1s 36ms/step - loss: 5.3684e-05 - acc: 1.0000 - val_loss: 1.7199e-04 - val_acc: 1.0000
+Epoch 34/100
+25/25 [==============================] - ETA: 0s - loss: 5.8669e-05 - acc: 1.0000
+Epoch 00034: val_loss improved from 0.00016 to 0.00012, saving model to model/Epoch-034_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 5.8669e-05 - acc: 1.0000 - val_loss: 1.2183e-04 - val_acc: 1.0000
+Epoch 35/100
+25/25 [==============================] - ETA: 0s - loss: 4.0041e-05 - acc: 1.0000
+Epoch 00035: val_loss improved from 0.00012 to 0.00010, saving model to model/Epoch-035_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 4.0041e-05 - acc: 1.0000 - val_loss: 9.7524e-05 - val_acc: 1.0000
+Epoch 36/100
+25/25 [==============================] - ETA: 0s - loss: 1.1768e-04 - acc: 1.0000
+Epoch 00036: val_loss did not improve from 0.00010
+25/25 [==============================] - 1s 36ms/step - loss: 1.1768e-04 - acc: 1.0000 - val_loss: 1.9434e-04 - val_acc: 1.0000
+Epoch 37/100
+25/25 [==============================] - ETA: 0s - loss: 5.4275e-05 - acc: 1.0000
+Epoch 00037: val_loss improved from 0.00010 to 0.00008, saving model to model/Epoch-037_Val-0.000.hdf5
+25/25 [==============================] - 1s 51ms/step - loss: 5.4275e-05 - acc: 1.0000 - val_loss: 8.0134e-05 - val_acc: 1.0000
+Epoch 38/100
+25/25 [==============================] - ETA: 0s - loss: 2.8322e-05 - acc: 1.0000
+Epoch 00038: val_loss did not improve from 0.00008
+25/25 [==============================] - 1s 36ms/step - loss: 2.8322e-05 - acc: 1.0000 - val_loss: 1.0517e-04 - val_acc: 1.0000
+Epoch 39/100
+25/25 [==============================] - ETA: 0s - loss: 2.9784e-05 - acc: 1.0000
+Epoch 00039: val_loss did not improve from 0.00008
+25/25 [==============================] - 1s 36ms/step - loss: 2.9784e-05 - acc: 1.0000 - val_loss: 1.0968e-04 - val_acc: 1.0000
+Epoch 40/100
+25/25 [==============================] - ETA: 0s - loss: 2.6670e-05 - acc: 1.0000
+Epoch 00040: val_loss did not improve from 0.00008
+25/25 [==============================] - 1s 36ms/step - loss: 2.6670e-05 - acc: 1.0000 - val_loss: 9.5663e-05 - val_acc: 1.0000
+Epoch 41/100
+25/25 [==============================] - ETA: 0s - loss: 2.9157e-05 - acc: 1.0000
+Epoch 00041: val_loss did not improve from 0.00008
+25/25 [==============================] - 1s 36ms/step - loss: 2.9157e-05 - acc: 1.0000 - val_loss: 9.4445e-05 - val_acc: 1.0000
+Epoch 42/100
+25/25 [==============================] - ETA: 0s - loss: 2.3634e-05 - acc: 1.0000
+Epoch 00042: val_loss improved from 0.00008 to 0.00007, saving model to model/Epoch-042_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 2.3634e-05 - acc: 1.0000 - val_loss: 7.2399e-05 - val_acc: 1.0000
+Epoch 43/100
+25/25 [==============================] - ETA: 0s - loss: 2.8920e-05 - acc: 1.0000
+Epoch 00043: val_loss improved from 0.00007 to 0.00005, saving model to model/Epoch-043_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 2.8920e-05 - acc: 1.0000 - val_loss: 4.8446e-05 - val_acc: 1.0000
+Epoch 44/100
+25/25 [==============================] - ETA: 0s - loss: 1.8365e-05 - acc: 1.0000
+Epoch 00044: val_loss improved from 0.00005 to 0.00005, saving model to model/Epoch-044_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 1.8365e-05 - acc: 1.0000 - val_loss: 4.5567e-05 - val_acc: 1.0000
+Epoch 45/100
+25/25 [==============================] - ETA: 0s - loss: 2.7618e-05 - acc: 1.0000
+Epoch 00045: val_loss did not improve from 0.00005
+25/25 [==============================] - 1s 36ms/step - loss: 2.7618e-05 - acc: 1.0000 - val_loss: 6.0419e-05 - val_acc: 1.0000
+Epoch 46/100
+25/25 [==============================] - ETA: 0s - loss: 2.4748e-05 - acc: 1.0000
+Epoch 00046: val_loss did not improve from 0.00005
+25/25 [==============================] - 1s 36ms/step - loss: 2.4748e-05 - acc: 1.0000 - val_loss: 4.5913e-05 - val_acc: 1.0000
+Epoch 47/100
+25/25 [==============================] - ETA: 0s - loss: 2.3981e-05 - acc: 1.0000
+Epoch 00047: val_loss did not improve from 0.00005
+25/25 [==============================] - 1s 36ms/step - loss: 2.3981e-05 - acc: 1.0000 - val_loss: 4.9119e-05 - val_acc: 1.0000
+Epoch 48/100
+25/25 [==============================] - ETA: 0s - loss: 1.7155e-05 - acc: 1.0000
+Epoch 00048: val_loss did not improve from 0.00005
+25/25 [==============================] - 1s 36ms/step - loss: 1.7155e-05 - acc: 1.0000 - val_loss: 5.4294e-05 - val_acc: 1.0000
+Epoch 49/100
+25/25 [==============================] - ETA: 0s - loss: 1.9790e-05 - acc: 1.0000
+Epoch 00049: val_loss did not improve from 0.00005
+25/25 [==============================] - 1s 36ms/step - loss: 1.9790e-05 - acc: 1.0000 - val_loss: 4.9068e-05 - val_acc: 1.0000
+Epoch 50/100
+25/25 [==============================] - ETA: 0s - loss: 1.2835e-05 - acc: 1.0000
+Epoch 00050: val_loss improved from 0.00005 to 0.00004, saving model to model/Epoch-050_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 1.2835e-05 - acc: 1.0000 - val_loss: 4.4145e-05 - val_acc: 1.0000
+Epoch 51/100
+25/25 [==============================] - ETA: 0s - loss: 1.5417e-05 - acc: 1.0000
+Epoch 00051: val_loss did not improve from 0.00004
+25/25 [==============================] - 1s 36ms/step - loss: 1.5417e-05 - acc: 1.0000 - val_loss: 4.5183e-05 - val_acc: 1.0000
+Epoch 52/100
+25/25 [==============================] - ETA: 0s - loss: 2.8948e-05 - acc: 1.0000
+Epoch 00052: val_loss improved from 0.00004 to 0.00004, saving model to model/Epoch-052_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 2.8948e-05 - acc: 1.0000 - val_loss: 4.1158e-05 - val_acc: 1.0000
+Epoch 53/100
+25/25 [==============================] - ETA: 0s - loss: 1.1434e-05 - acc: 1.0000
+Epoch 00053: val_loss did not improve from 0.00004
+25/25 [==============================] - 1s 36ms/step - loss: 1.1434e-05 - acc: 1.0000 - val_loss: 4.9010e-05 - val_acc: 1.0000
+Epoch 54/100
+25/25 [==============================] - ETA: 0s - loss: 2.5439e-05 - acc: 1.0000
+Epoch 00054: val_loss improved from 0.00004 to 0.00002, saving model to model/Epoch-054_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 2.5439e-05 - acc: 1.0000 - val_loss: 2.4634e-05 - val_acc: 1.0000
+Epoch 55/100
+25/25 [==============================] - ETA: 0s - loss: 1.1965e-05 - acc: 1.0000
+Epoch 00055: val_loss improved from 0.00002 to 0.00002, saving model to model/Epoch-055_Val-0.000.hdf5
+25/25 [==============================] - 1s 58ms/step - loss: 1.1965e-05 - acc: 1.0000 - val_loss: 2.4581e-05 - val_acc: 1.0000
+Epoch 56/100
+25/25 [==============================] - ETA: 0s - loss: 3.1962e-05 - acc: 1.0000
+Epoch 00056: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 3.1962e-05 - acc: 1.0000 - val_loss: 7.0297e-05 - val_acc: 1.0000
+Epoch 57/100
+25/25 [==============================] - ETA: 0s - loss: 1.7096e-05 - acc: 1.0000
+Epoch 00057: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 1.7096e-05 - acc: 1.0000 - val_loss: 4.0061e-05 - val_acc: 1.0000
+Epoch 58/100
+25/25 [==============================] - ETA: 0s - loss: 1.0613e-05 - acc: 1.0000
+Epoch 00058: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 1.0613e-05 - acc: 1.0000 - val_loss: 3.3970e-05 - val_acc: 1.0000
+Epoch 59/100
+25/25 [==============================] - ETA: 0s - loss: 9.1374e-06 - acc: 1.0000
+Epoch 00059: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 9.1374e-06 - acc: 1.0000 - val_loss: 2.7686e-05 - val_acc: 1.0000
+Epoch 60/100
+25/25 [==============================] - ETA: 0s - loss: 8.9135e-06 - acc: 1.0000
+Epoch 00060: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 37ms/step - loss: 8.9135e-06 - acc: 1.0000 - val_loss: 2.5233e-05 - val_acc: 1.0000
+Epoch 61/100
+25/25 [==============================] - ETA: 0s - loss: 1.4694e-05 - acc: 1.0000
+Epoch 00061: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 37ms/step - loss: 1.4694e-05 - acc: 1.0000 - val_loss: 2.6535e-05 - val_acc: 1.0000
+Epoch 62/100
+25/25 [==============================] - ETA: 0s - loss: 9.4988e-06 - acc: 1.0000
+Epoch 00062: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 37ms/step - loss: 9.4988e-06 - acc: 1.0000 - val_loss: 2.4972e-05 - val_acc: 1.0000
+Epoch 63/100
+25/25 [==============================] - ETA: 0s - loss: 9.3980e-06 - acc: 1.0000
+Epoch 00063: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 9.3980e-06 - acc: 1.0000 - val_loss: 2.7477e-05 - val_acc: 1.0000
+Epoch 64/100
+25/25 [==============================] - ETA: 0s - loss: 1.0483e-05 - acc: 1.0000
+Epoch 00064: val_loss improved from 0.00002 to 0.00002, saving model to model/Epoch-064_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 1.0483e-05 - acc: 1.0000 - val_loss: 2.0992e-05 - val_acc: 1.0000
+Epoch 65/100
+25/25 [==============================] - ETA: 0s - loss: 9.5763e-06 - acc: 1.0000
+Epoch 00065: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 9.5763e-06 - acc: 1.0000 - val_loss: 2.2387e-05 - val_acc: 1.0000
+Epoch 66/100
+25/25 [==============================] - ETA: 0s - loss: 6.9450e-06 - acc: 1.0000
+Epoch 00066: val_loss did not improve from 0.00002
+25/25 [==============================] - 1s 36ms/step - loss: 6.9450e-06 - acc: 1.0000 - val_loss: 2.2111e-05 - val_acc: 1.0000
+Epoch 67/100
+25/25 [==============================] - ETA: 0s - loss: 1.8263e-05 - acc: 1.0000
+Epoch 00067: val_loss improved from 0.00002 to 0.00002, saving model to model/Epoch-067_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 1.8263e-05 - acc: 1.0000 - val_loss: 1.6157e-05 - val_acc: 1.0000
+Epoch 68/100
+25/25 [==============================] - ETA: 0s - loss: 1.3587e-05 - acc: 1.0000
+Epoch 00068: val_loss improved from 0.00002 to 0.00001, saving model to model/Epoch-068_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 1.3587e-05 - acc: 1.0000 - val_loss: 1.3283e-05 - val_acc: 1.0000
+Epoch 69/100
+25/25 [==============================] - ETA: 0s - loss: 6.8544e-06 - acc: 1.0000
+Epoch 00069: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 36ms/step - loss: 6.8544e-06 - acc: 1.0000 - val_loss: 1.5436e-05 - val_acc: 1.0000
+Epoch 70/100
+25/25 [==============================] - ETA: 0s - loss: 5.5281e-06 - acc: 1.0000
+Epoch 00070: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 5.5281e-06 - acc: 1.0000 - val_loss: 1.4697e-05 - val_acc: 1.0000
+Epoch 71/100
+25/25 [==============================] - ETA: 0s - loss: 6.5539e-06 - acc: 1.0000
+Epoch 00071: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 6.5539e-06 - acc: 1.0000 - val_loss: 1.6346e-05 - val_acc: 1.0000
+Epoch 72/100
+25/25 [==============================] - ETA: 0s - loss: 1.9529e-05 - acc: 1.0000
+Epoch 00072: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 1.9529e-05 - acc: 1.0000 - val_loss: 1.8929e-05 - val_acc: 1.0000
+Epoch 73/100
+25/25 [==============================] - ETA: 0s - loss: 7.2970e-06 - acc: 1.0000
+Epoch 00073: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 7.2970e-06 - acc: 1.0000 - val_loss: 1.5770e-05 - val_acc: 1.0000
+Epoch 74/100
+25/25 [==============================] - ETA: 0s - loss: 4.6910e-06 - acc: 1.0000
+Epoch 00074: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 4.6910e-06 - acc: 1.0000 - val_loss: 1.6100e-05 - val_acc: 1.0000
+Epoch 75/100
+25/25 [==============================] - ETA: 0s - loss: 7.2167e-06 - acc: 1.0000
+Epoch 00075: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-075_Val-0.000.hdf5
+25/25 [==============================] - 1s 48ms/step - loss: 7.2167e-06 - acc: 1.0000 - val_loss: 1.2845e-05 - val_acc: 1.0000
+Epoch 76/100
+25/25 [==============================] - ETA: 0s - loss: 6.6111e-06 - acc: 1.0000
+Epoch 00076: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-076_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 6.6111e-06 - acc: 1.0000 - val_loss: 1.2233e-05 - val_acc: 1.0000
+Epoch 77/100
+25/25 [==============================] - ETA: 0s - loss: 6.1500e-06 - acc: 1.0000
+Epoch 00077: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 6.1500e-06 - acc: 1.0000 - val_loss: 1.3820e-05 - val_acc: 1.0000
+Epoch 78/100
+25/25 [==============================] - ETA: 0s - loss: 9.7865e-06 - acc: 1.0000
+Epoch 00078: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 9.7865e-06 - acc: 1.0000 - val_loss: 1.6789e-05 - val_acc: 1.0000
+Epoch 79/100
+25/25 [==============================] - ETA: 0s - loss: 5.0646e-05 - acc: 1.0000
+Epoch 00079: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 5.0646e-05 - acc: 1.0000 - val_loss: 9.2427e-05 - val_acc: 1.0000
+Epoch 80/100
+25/25 [==============================] - ETA: 0s - loss: 1.3086e-05 - acc: 1.0000
+Epoch 00080: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 1.3086e-05 - acc: 1.0000 - val_loss: 4.4307e-05 - val_acc: 1.0000
+Epoch 81/100
+25/25 [==============================] - ETA: 0s - loss: 1.2595e-05 - acc: 1.0000
+Epoch 00081: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 1.2595e-05 - acc: 1.0000 - val_loss: 1.3030e-05 - val_acc: 1.0000
+Epoch 82/100
+25/25 [==============================] - ETA: 0s - loss: 4.8517e-06 - acc: 1.0000
+Epoch 00082: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-082_Val-0.000.hdf5
+25/25 [==============================] - 1s 43ms/step - loss: 4.8517e-06 - acc: 1.0000 - val_loss: 8.7514e-06 - val_acc: 1.0000
+Epoch 83/100
+25/25 [==============================] - ETA: 0s - loss: 5.8273e-06 - acc: 1.0000
+Epoch 00083: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-083_Val-0.000.hdf5
+25/25 [==============================] - 1s 41ms/step - loss: 5.8273e-06 - acc: 1.0000 - val_loss: 8.6218e-06 - val_acc: 1.0000
+Epoch 84/100
+25/25 [==============================] - ETA: 0s - loss: 3.9942e-06 - acc: 1.0000
+Epoch 00084: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-084_Val-0.000.hdf5
+25/25 [==============================] - 1s 40ms/step - loss: 3.9942e-06 - acc: 1.0000 - val_loss: 8.5610e-06 - val_acc: 1.0000
+Epoch 85/100
+25/25 [==============================] - ETA: 0s - loss: 7.5102e-06 - acc: 1.0000
+Epoch 00085: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 7.5102e-06 - acc: 1.0000 - val_loss: 9.5594e-06 - val_acc: 1.0000
+Epoch 86/100
+25/25 [==============================] - ETA: 0s - loss: 2.7132e-06 - acc: 1.0000
+Epoch 00086: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 2.7132e-06 - acc: 1.0000 - val_loss: 1.1151e-05 - val_acc: 1.0000
+Epoch 87/100
+25/25 [==============================] - ETA: 0s - loss: 2.7220e-06 - acc: 1.0000
+Epoch 00087: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 2.7220e-06 - acc: 1.0000 - val_loss: 1.0880e-05 - val_acc: 1.0000
+Epoch 88/100
+25/25 [==============================] - ETA: 0s - loss: 4.8694e-06 - acc: 1.0000
+Epoch 00088: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 4.8694e-06 - acc: 1.0000 - val_loss: 9.3138e-06 - val_acc: 1.0000
+Epoch 89/100
+25/25 [==============================] - ETA: 0s - loss: 2.1952e-06 - acc: 1.0000
+Epoch 00089: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 2.1952e-06 - acc: 1.0000 - val_loss: 9.0340e-06 - val_acc: 1.0000
+Epoch 90/100
+25/25 [==============================] - ETA: 0s - loss: 5.2935e-06 - acc: 1.0000
+Epoch 00090: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 5.2935e-06 - acc: 1.0000 - val_loss: 1.0136e-05 - val_acc: 1.0000
+Epoch 91/100
+25/25 [==============================] - ETA: 0s - loss: 3.7546e-06 - acc: 1.0000
+Epoch 00091: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 3.7546e-06 - acc: 1.0000 - val_loss: 9.7669e-06 - val_acc: 1.0000
+Epoch 92/100
+25/25 [==============================] - ETA: 0s - loss: 4.8554e-06 - acc: 1.0000
+Epoch 00092: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 36ms/step - loss: 4.8554e-06 - acc: 1.0000 - val_loss: 1.0941e-05 - val_acc: 1.0000
+Epoch 93/100
+25/25 [==============================] - ETA: 0s - loss: 3.1956e-06 - acc: 1.0000
+Epoch 00093: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 36ms/step - loss: 3.1956e-06 - acc: 1.0000 - val_loss: 1.0341e-05 - val_acc: 1.0000
+Epoch 94/100
+25/25 [==============================] - ETA: 0s - loss: 3.8897e-06 - acc: 1.0000
+Epoch 00094: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 3.8897e-06 - acc: 1.0000 - val_loss: 1.2036e-05 - val_acc: 1.0000
+Epoch 95/100
+25/25 [==============================] - ETA: 0s - loss: 3.1477e-06 - acc: 1.0000
+Epoch 00095: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 3.1477e-06 - acc: 1.0000 - val_loss: 1.0443e-05 - val_acc: 1.0000
+Epoch 96/100
+25/25 [==============================] - ETA: 0s - loss: 2.5562e-06 - acc: 1.0000
+Epoch 00096: val_loss did not improve from 0.00001
+25/25 [==============================] - 1s 37ms/step - loss: 2.5562e-06 - acc: 1.0000 - val_loss: 9.5068e-06 - val_acc: 1.0000
+Epoch 97/100
+25/25 [==============================] - ETA: 0s - loss: 2.3779e-06 - acc: 1.0000
+Epoch 00097: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-097_Val-0.000.hdf5
+25/25 [==============================] - 1s 41ms/step - loss: 2.3779e-06 - acc: 1.0000 - val_loss: 8.5134e-06 - val_acc: 1.0000
+Epoch 98/100
+25/25 [==============================] - ETA: 0s - loss: 2.6776e-06 - acc: 1.0000
+Epoch 00098: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-098_Val-0.000.hdf5
+25/25 [==============================] - 1s 42ms/step - loss: 2.6776e-06 - acc: 1.0000 - val_loss: 7.7560e-06 - val_acc: 1.0000
+Epoch 99/100
+25/25 [==============================] - ETA: 0s - loss: 1.8403e-06 - acc: 1.0000
+Epoch 00099: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-099_Val-0.000.hdf5
+25/25 [==============================] - 1s 41ms/step - loss: 1.8403e-06 - acc: 1.0000 - val_loss: 7.7078e-06 - val_acc: 1.0000
+Epoch 100/100
+25/25 [==============================] - ETA: 0s - loss: 2.4370e-06 - acc: 1.0000
+Epoch 00100: val_loss improved from 0.00001 to 0.00001, saving model to model/Epoch-100_Val-0.000.hdf5
+25/25 [==============================] - 1s 49ms/step - loss: 2.4370e-06 - acc: 1.0000 - val_loss: 7.3151e-06 - val_acc: 1.0000
+
+Process finished with exit code 0

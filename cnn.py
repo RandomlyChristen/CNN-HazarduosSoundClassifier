@@ -63,7 +63,7 @@ def build_model(input_shape):
     layers.add(Activation(activation='relu'))
 
     layers.add(GlobalAveragePooling2D())
-    layers.add(Dense(2, activation='sigmoid'))
+    layers.add(Dense(2, activation='softmax'))
 
     return layers
 
@@ -85,7 +85,7 @@ X_origin = np.expand_dims(X_origin, -1)
 
 model = build_model(input_shape=(99, 90, 1))
 model.summary()
-model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=learning_rate), metrics=['acc'])
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=learning_rate), metrics=['acc'])
 
 checkpoint = ModelCheckpoint(filepath=MODEL_FILE_PATH, monitor='val_loss', verbose=1,
                              save_best_only=True)
