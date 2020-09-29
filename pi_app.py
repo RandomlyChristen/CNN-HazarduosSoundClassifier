@@ -7,6 +7,8 @@ from cam import Cam
 from six.moves import queue
 import pyaudio
 
+import RPi.GPIO as GPIO
+
 
 SCALER_FILE_PATH = 'model/scaler.joblib'
 MODEL_FILE_PATH = 'model/Epoch-100_Val-0.000.hdf5'
@@ -18,6 +20,9 @@ DANGER_THRESHOLD = 0.6
 MICS_SAM_RATE = 44100
 MICS_CHANNELS = 2
 MICS_DEVICE_ID = 0
+
+LEFT_VIB_PIN = 12
+RIGHT_VIB_PIN = 13
 
 
 class MicStream(object):
@@ -96,6 +101,10 @@ if __name__ == '__main__':
     model = load_model(MODEL_FILE_PATH)
     cam_generator = Cam(model, WATCH_CONV_ACT_LAYER, WATCH_CLASSIFIER_LAYER)
 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(LEFT_VIB_PIN, GPIO.OUT)
+    GPIO.setup(RIGHT_VIB_PIN, GPIO.OUT)
+
     with MicStream(MICS_SAM_RATE, MICS_SAM_RATE//2, MICS_DEVICE_ID, MICS_CHANNELS) as stream:
         audio_generator = stream.generator(out_size=MICS_SAM_RATE)
 
@@ -115,8 +124,12 @@ if __name__ == '__main__':
 
                 vote_result = vote_from_cam(left_mel, right_mel, np.array(cam))
                 if vote_result == 0:
-                    print('LEFT DANGER')
+                    # print('LEFT DANGER')
+                    GPIO.output(LEFT_VIB_PIN, GPIO.HIGH)
                 else:
-                    print('RIGHT DANGER')
+                    GPIO.output(RIGHT_VIB_PIN, GPIO.HIGH)
+                    # print('RIGHT DANGER')
             else:
-                print('SAFE')
+                GPIO.output(LEFT_VIB_PIN, GPIO.LOW)
+                GPIO.output(RIGHT_VIB_PIN, GPIO.LOW)
+                # print('SAFE')
